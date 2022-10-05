@@ -1,0 +1,27 @@
+﻿@model IAsyncEnumerable<ChannelEngineAssessment.Shared.ChannelEngineClient.SoldProduct>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Top five best selling products</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Ean</th>
+            <th scope="col">Total quantity</th>
+            <th scope="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @await foreach (var soldProduct in Model)
+        {
+            <tr>
+                <td>@soldProduct.Name</td>
+                <td>@soldProduct.Ean</td>
+                <td>@soldProduct.TotalQuantity</td>
+                <td>@soldProduct.Stock</td>
+            </tr>
+        }
+    </tbody>
+</table>
